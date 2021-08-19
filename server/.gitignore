@@ -1,0 +1,7 @@
+.DS_Store
+
+.env
+.env.development
+asd
+node_modules/
+coverage/
