@@ -7,7 +7,6 @@ import '../styles/map.css';
 
 export default function Map() {
 
-  const [reviews, setReviews] = useState([]);
   const [currentWashroomId, setCurrentWashroomId] = useState(null);
   const [washrooms, setWashrooms] = useState([]);
   const [viewport, setViewport] = useState({
@@ -31,17 +30,7 @@ export default function Map() {
   }, []);
 
 
-  useEffect(() => {
-    const getReviews = async () => {
-      try {
-        const res = await axios.get("/reviews");
-        setReviews(res.data.rows);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getReviews();
-  }, []);
+  
 
   const handleWashroomClick = (id) => {
     setCurrentWashroomId(id);
