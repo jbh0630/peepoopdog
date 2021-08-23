@@ -12,6 +12,21 @@
   padding: 1em 0 0 .5em;
 }
 
+.getRoute {
+  text-align: center;
+  border-top: .5px solid tomato;
+  padding-top: 1em;
+}
+
+.getRoute button {
+  background-color: tomato;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 22px;
+  border-color: white;
+}
+
 label {
   width: max-content;
   color: tomato;
