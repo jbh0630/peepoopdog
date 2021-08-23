@@ -7,6 +7,7 @@ import ReviewList from './ReviewList';
 import '../styles/map.css';
 
 export default function Map() {
+
   const layer = {
     'id': 'route',
             'type': 'line',
@@ -21,6 +22,7 @@ export default function Map() {
               'line-opacity': 0.75
             }
   };
+  const [instructions, setInstructions] = useState([]);
   const [geojson, setGeojson] = useState({});
   const [currentUserPos, setCurrentUserPos] = useState({});
   const [currentReview, setCurrentReview] = useState([]);
@@ -109,13 +111,31 @@ export default function Map() {
             coordinates: route
           }
         });
+
+        setInstructions(instructionsList(data.legs[0].steps, data));
+
       }
-          
-
       req.send();
-    };
-      
 
+      document.getElementById("instructions").style.display = "block";
+
+      setCurrentWashroomId(null);
+    };
+
+    const instructionsList = (steps, data) => {
+      let ins = [];
+
+      for (let i = 0; i < steps.length; i++) {
+        ins.push(<li>{steps[i].maneuver.instruction}</li>);
+      }
+
+      return (
+        <>
+        <br></br><span class="duration">Trip duration:  {Math.floor(data.duration / 60)} min </span> {ins}
+        </>
+      );
+    }
+      
     return(
       <div className="Map">
         <ReactMapGL 
@@ -176,6 +196,9 @@ export default function Map() {
           <Source id="my-data" type="geojson" data={geojson}>
             <Layer {...layer} />
           </Source>
+          <div id="instructions">
+            {instructions}
+          </div>
         </ReactMapGL>
         <div>{reviewList}</div>
       </div>

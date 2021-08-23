@@ -1,3 +1,9 @@
+.Map {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .popup {
   z-index: 1;
   border-radius: 22px;
@@ -36,4 +42,23 @@ label {
 
 .comments {
   font-size: 14;
+}
+
+#instructions {
+  display: none;
+  position: absolute;
+  margin: 20px;
+  width: 25%;
+  top: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  line-height: 2em;
+}
+
+.duration {
+  font-size: 2em;
 }
