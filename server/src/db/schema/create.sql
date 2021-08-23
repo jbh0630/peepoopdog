@@ -12,7 +12,8 @@ CREATE TABLE users (
 CREATE TABLE washrooms (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
-  location VARCHAR(255) NOT NULL
+  latitude VARCHAR(255) NOT NULL,
+  longitude VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE reviews (
