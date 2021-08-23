@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/reviewList.css';
 
 export default function ReviewList(props) {
-  console.log('propssssss:::  ', props);
   return(
     <>
     <div className="review-box">

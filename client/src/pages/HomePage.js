@@ -9,6 +9,7 @@ export default function HomePage() {
         <div className="Map">
           <Map />
         </div>
+        <div id="instructions"></div>
       </div>
     );
 }
