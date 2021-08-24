@@ -6,7 +6,7 @@ export default function HomePage() {
  
     return(
       <div>
-        <div className="Map">
+        <div className="initMap">
           <Map />
         </div>
       </div>

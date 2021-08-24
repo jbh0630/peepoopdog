@@ -2,6 +2,36 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 80%;
+}
+
+#review {
+  display: none;
+  width: 350px;
+  height: 400px;
+  border: 2px solid tomato;
+  border-radius: 5px;
+  margin-top: 5.5em;
+}
+
+#review h1 {
+  color: tomato;
+  text-align: center;
+}
+
+#reviewList {
+  overflow: scroll;
+  height: 250px;
+}
+
+#reviewList h3 {
+  text-align: center;
+}
+
+#reviewList p {
+  color: deeppink;
+  text-align: center;
+  margin-bottom: 3em;
 }
 
 .popup {
@@ -11,8 +41,7 @@
 
 #addReview-button {
   display: none;
-  margin-top: 2em;
-  margin-left: auto;
+  margin: 1em auto;
   width: 40%;
   height: auto;
   font-size: 1em;
