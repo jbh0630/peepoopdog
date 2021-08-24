@@ -4,6 +4,9 @@ import WcIcon from '@material-ui/icons/Wc';
 import axios from 'axios';
 
 import ReviewList from './ReviewList';
+import ReviewWindow from './ReviewWindow';
+import Review from '../pages/Review';
+
 import '../styles/map.css';
 
 export default function Map() {
@@ -22,6 +25,8 @@ export default function Map() {
               'line-opacity': 0.75
             }
   };
+  const [showPopup, togglePopup] = useState(false);
+  const [showAddReview, setShowAddReview] = useState(false);
   const [instructions, setInstructions] = useState([]);
   const [geojson, setGeojson] = useState({});
   const [currentUserPos, setCurrentUserPos] = useState({});
@@ -68,6 +73,7 @@ export default function Map() {
 
   const handleWashroomClick = (id) => {
     setCurrentWashroomId(id);
+    togglePopup(true);
   }
 
   const getFilterReviews = (id) => {
@@ -78,6 +84,7 @@ export default function Map() {
       }
     }
     setCurrentReview(result);
+    document.getElementById('addReview-button').style.display = "block";
   }
   
    const reviewList = currentReview.length > 0 ? currentReview.map((review) => {
@@ -118,8 +125,6 @@ export default function Map() {
       req.send();
 
       document.getElementById("instructions").style.display = "block";
-
-      setCurrentWashroomId(null);
     };
 
     const instructionsList = (steps, data) => {
@@ -135,6 +140,15 @@ export default function Map() {
         </>
       );
     }
+
+    const addReview = (newReview) => {
+      handleCloseToggle();
+      setCurrentReview(prev => ([ ...prev, newReview]));
+    }
+
+    const handleCloseToggle = () => {
+      setShowAddReview(!showAddReview);
+    }
       
     return(
       <div className="Map">
@@ -143,7 +157,6 @@ export default function Map() {
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
           onViewportChange={(viewport) => setViewport(viewport)}
           mapStyle= "mapbox://styles/jo123123/cksjio8yr846a17pdl08fxf6y"
-          
         >
           <GeolocateControl
             onViewportChange={(viewport) => {
@@ -172,24 +185,24 @@ export default function Map() {
                 />
               </Marker>
               {washroom.id === currentWashroomId && (
-              <Popup
-                className="popup"
-                latitude={Number(washroom.latitude)} 
-                longitude={Number(washroom.longitude)}
-                closeButton={true}
-                closeOnClick={false}
-                onClose={() => setCurrentWashroomId(null)}
-                anchor="left"
-              >
-                <div className="card">
-                  <label>Location</label>
-                  <h4 className="location">{washroom.name}</h4>
-                </div>
-                <div className="getRoute">
-                  <button onClick={() => 
-                    handleGetRouteClick(Number(washroom.latitude), Number(washroom.longitude))}>Directions</button>
-                </div>
-              </Popup>
+                showPopup && <Popup
+                  className="popup"
+                  latitude={Number(washroom.latitude)} 
+                  longitude={Number(washroom.longitude)}
+                  closeButton={true}
+                  closeOnClick={false}
+                  onClose={() =>togglePopup(false)}
+                  anchor="left"
+                >
+                  <div className="card">
+                    <label>Location</label>
+                    <h4 className="location">{washroom.name}</h4>
+                  </div>
+                  <div className="getRoute">
+                    <button onClick={() => 
+                      handleGetRouteClick(Number(washroom.latitude), Number(washroom.longitude))}>Directions</button>
+                  </div>
+                </Popup>
               )}
             </>
           ))}
@@ -200,7 +213,26 @@ export default function Map() {
             {instructions}
           </div>
         </ReactMapGL>
-        <div>{reviewList}</div>
+        <div id="reviewList">
+          {reviewList}
+          <div>
+            {showAddReview && <ReviewWindow 
+              content={
+                <Review washroom_id={currentWashroomId} addReview={addReview}/>
+              }
+                handleClose={handleCloseToggle}
+            />}
+            <button 
+              id="addReview-button" 
+              onClick={() => { 
+                setShowAddReview(!showAddReview);
+                togglePopup(false);
+                }}
+            >
+              Add Review
+            </button>
+          </div>
+        </div>
       </div>
     );
 }
