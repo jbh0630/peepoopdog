@@ -1,10 +1,9 @@
 .review-box {
   display: flex;
   flex-direction: column;
-  min-width: 18rem;
-  width: 40%;
-  border: solid 2px;
-  margin-top: 15px;
+  border: solid 2px tomato;
+  margin: 8px auto;
+  width: 85%;
   padding: 5px 15px 5px 15px;
   border-radius: 5px;
 }

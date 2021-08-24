@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ReactMapGL, { Marker, Popup, GeolocateControl, Source, Layer } from "react-map-gl";
+
 import WcIcon from '@material-ui/icons/Wc';
+import CommentIcon from '@material-ui/icons/Comment';
 import axios from 'axios';
 
 import ReviewList from './ReviewList';
@@ -93,7 +95,10 @@ export default function Map() {
       rating={review.rating}
       comment={review.comment}
     />
-    }) : null;
+    }) : <>
+          <h3><CommentIcon />&ensp;No reviews yet!</h3>
+          <p>Add your first review now</p>
+        </>;
 
 
     const handleGetRouteClick = (lat, lng) => {
@@ -181,6 +186,7 @@ export default function Map() {
                   style={{fontSize: viewport.zoom * 2, color:"blue"}}
                   onClick={() => {
                     handleWashroomClick(washroom.id); getFilterReviews(washroom.id);
+                    document.getElementById("review").style.display = "block";
                   }}
                 />
               </Marker>
@@ -213,8 +219,11 @@ export default function Map() {
             {instructions}
           </div>
         </ReactMapGL>
-        <div id="reviewList">
-          {reviewList}
+        <div id="review">
+          <h1>Reviews</h1>
+          <div id="reviewList">
+            {reviewList}
+          </div>
           <div>
             {showAddReview && <ReviewWindow 
               content={
