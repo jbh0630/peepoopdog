@@ -9,6 +9,20 @@
   border-radius: 22px;
 }
 
+#addReview-button {
+  display: none;
+  margin-top: 2em;
+  margin-left: auto;
+  width: 40%;
+  height: auto;
+  font-size: 1em;
+  font-family: sans-serif;
+  border-radius: 22px;
+  background-color: tomato;
+  color: white;
+  border-color: white;
+}
+
 .card {
   width: 200px;
   height: 60px;
