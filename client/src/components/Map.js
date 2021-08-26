@@ -6,8 +6,9 @@ import CommentIcon from '@material-ui/icons/Comment';
 import axios from 'axios';
 
 import ReviewList from './ReviewList';
-import ReviewWindow from './ReviewWindow';
-import Review from '../pages/Review';
+import Window from './Window';
+import Review from './Review';
+import AddNew from './AddNew';
 
 import '../styles/map.css';
 
@@ -27,6 +28,7 @@ export default function Map() {
               'line-opacity': 0.75
             }
   };
+  const [showAddNewLocation, setShowAddNewLocation] = useState(false);
   const [showPopup, togglePopup] = useState(false);
   const [showAddReview, setShowAddReview] = useState(false);
   const [instructions, setInstructions] = useState([]);
@@ -151,11 +153,22 @@ export default function Map() {
       setCurrentReview(prev => ([ ...prev, newReview]));
     }
 
+    const addNewLocation = (newLocation) => {
+      handleCloseAddNew();
+      setWashrooms(prev => ([ ...prev, newLocation]));
+    }
+
     const handleCloseToggle = () => {
       setShowAddReview(!showAddReview);
     }
+
+    const handleCloseAddNew = () => {
+      setShowAddNewLocation(!showAddNewLocation);
+    }
       
     return(
+      <>
+      <h1 className="washroom-title">Find Washrooms</h1>
       <div className="Map">
         <ReactMapGL 
           {...viewport}
@@ -225,9 +238,12 @@ export default function Map() {
             {reviewList}
           </div>
           <div>
-            {showAddReview && <ReviewWindow 
+            {showAddReview && <Window 
               content={
+                <>
+                <h2 style={{color: 'tomato'}}>Review</h2>
                 <Review washroom_id={currentWashroomId} addReview={addReview}/>
+                </>
               }
                 handleClose={handleCloseToggle}
             />}
@@ -241,7 +257,30 @@ export default function Map() {
               Add Review
             </button>
           </div>
+          
         </div>
+        
       </div>
+      <div className="addnew">
+        {showAddNewLocation && <Window 
+          content={
+            <>
+            <h2 style={{color: 'tomato'}}>Add New Location</h2>
+            <AddNew position={[currentUserPos.latitude, currentUserPos.longitude]} addNewLocation={addNewLocation} />
+            </>
+          }
+            handleClose={handleCloseAddNew}
+        />}
+        <button 
+          id="addNewLocation-button"
+          onClick={() => {
+            setShowAddReview(false);
+            setShowAddNewLocation(!showAddNewLocation);
+          }}
+        >
+          Add New Location
+        </button>
+      </div>
+      </>
     );
 }

@@ -4,13 +4,12 @@ import {
   Route
 } from "react-router-dom";
 
-import Homepage from './pages/HomePage';
+import FindWashroom from './pages/FindWashroom';
 
 function App() {
     return(
       <Router>
-        <Route exact path="/homepage" component={Homepage} />
-        
+        <Route exact path="/findwashroom" component={FindWashroom} />
       </Router>
     );
 }

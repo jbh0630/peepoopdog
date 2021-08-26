@@ -2,7 +2,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+}
+
+.washroom-title {
+  text-align: center;
+  margin-top: 2em;
+  color: tomato;
 }
 
 #review {
@@ -12,6 +21,7 @@
   border: 2px solid tomato;
   border-radius: 5px;
   margin-top: 5.5em;
+  background-color: #b4ccde;
 }
 
 #review h1 {
@@ -49,7 +59,7 @@
   border-radius: 22px;
   background-color: tomato;
   color: white;
-  border-color: white;
+  border-color: transparent;
 }
 
 .card {
@@ -76,14 +86,13 @@
   border-color: white;
 }
 
-label {
+.Map label {
   width: max-content;
   color: tomato;
   font-size: 15px;
-  border-bottom: .5px solid tomato;
 }
 
-.comments {
+.Map .comments {
   font-size: 14;
 }
 
@@ -102,6 +111,24 @@ label {
   line-height: 2em;
 }
 
-.duration {
+.Map .duration {
   font-size: 2em;
+}
+
+.addnew {
+  margin-left: auto;
+  margin-right: auto;
+  width: 750px;
+}
+
+#addNewLocation-button {
+  margin-top: 2em;
+  margin-left: 6.5em;
+  background-color: tomato;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 22px;
+  border-color: transparent;
+  margin-bottom: 2em;
 }
