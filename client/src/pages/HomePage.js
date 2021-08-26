@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-
-import Map from '../components/Map';
+import React from 'react';
 
 export default function HomePage() {
- 
-    return(
-      <div>
-        <div className="initMap">
-          <Map />
-        </div>
-      </div>
-    );
+
+
+  return
 }
