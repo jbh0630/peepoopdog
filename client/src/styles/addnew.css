@@ -1,0 +1,44 @@
+.new-washroom {
+  margin-top: 4em;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-washroom h4 {
+  text-align: center;
+  font-style: italic;
+  color: deeppink;
+}
+
+.new-washroom-form .location {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+}
+
+.new-washroom-form .location-label {
+  font-size: 1em;
+  color: tomato;
+  margin-bottom: 1em;
+  padding-right: 3em;
+}
+
+.new-washroom-form .location-input {
+  width: 150px;
+  height: 25px;
+}
+
+.new-washroom-form .footer {
+  float: right;
+  margin-right: 3em;
+}
+
+.new-washroom-form .footer .submit {
+  border-radius: 22px;
+  border-color: transparent;
+  background-color: tomato;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}

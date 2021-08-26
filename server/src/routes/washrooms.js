@@ -8,5 +8,16 @@ module.exports = db => {
       res.json(washrooms);
     });
   });
+
+  router.post("/washrooms", (req, res) => {
+    db.query(`
+      INSERT INTO washrooms (name, latitude, longitude)
+      VALUES ($1, $2, $3)
+      RETURNING *;
+    `, [req.body.name, req.body.lat, req.body.lng])
+    .then((result) => {
+      res.status(201).json(result.rows[0]);
+    });
+  });
   return router;
 };
