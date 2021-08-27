@@ -40,11 +40,11 @@ export default function Map() {
   const [washrooms, setWashrooms] = useState([]);
   const [showReview, setShowReview] = useState(false);
   const [viewport, setViewport] = useState({
-    width: 1700,
-    height: 650,
+    width: 1800,
+    height: 700,
     latitude: 49.229575,
     longitude: -122.974397,
-    zoom: 11
+    zoom: 11,
   });
   const geolocateControlStyle = {
     right: 10,
@@ -89,7 +89,6 @@ export default function Map() {
       }
     }
     setCurrentReview(result);
-    // document.getElementById('addReview-button').style.display = "block";
   }
   
    const reviewList = currentReview.length > 0 ? currentReview.map((review) => {
@@ -109,13 +108,6 @@ export default function Map() {
     }
 
     const handleShowReview = () => {
-      setViewport({
-        width: 1000,
-        height: 650,
-        latitude: currentUserPos.latitude,
-        longitude: currentUserPos.longitude,
-        zoom: 12
-      });
       setShowReview(true);
     }
    
@@ -180,13 +172,12 @@ export default function Map() {
       console.log(currentWashroomId);
     return(
       <>
-      <h1 className="washroom-title">Find Washrooms</h1>
       <div className="Map">
         <ReactMapGL 
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
           onViewportChange={(viewport) => setViewport(viewport)}
-          mapStyle= "mapbox://styles/jo123123/cksjio8yr846a17pdl08fxf6y"
+          mapStyle= "mapbox://styles/jo123123/cksuq5h5r9t6817rwj9zoqsrw"
         >
           <GeolocateControl
             onViewportChange={(viewport) => {
@@ -208,7 +199,7 @@ export default function Map() {
                 offsetTop={-10}
               >
                 <WcIcon 
-                  style={{fontSize: viewport.zoom * 2, color:"blue"}}
+                  style={{fontSize: viewport.zoom * 2, color:"#0585f5"}}
                   onClick={() => {
                     handleWashroomClick(washroom.id); getFilterReviews(washroom.id);
                     handleShowReview();
@@ -243,10 +234,43 @@ export default function Map() {
           <div id="instructions">
             {instructions}
           </div>
+          <div className="addnew">
+              {showAddNewLocation && <Window 
+                content={
+                  <>
+                  <h2>Add New Location</h2>
+                  <AddNew position={[currentUserPos.latitude, currentUserPos.longitude]} addNewLocation={addNewLocation} />
+                  </>
+                }
+                  handleClose={handleCloseAddNew}
+              />}
+              <button 
+                id="addNewLocation-button"
+                onClick={() => {
+                  setShowAddReview(false);
+                  setShowAddNewLocation(!showAddNewLocation);
+                }}
+              >
+                Add New Location
+              </button>
+            </div>
         </ReactMapGL>
-        {showReview && (
+        
            <div id="review">
+           <div class="review-header">
            <h1>Reviews</h1>
+           <button 
+               id="addReview-button" 
+               onClick={() => { 
+                 setShowAddReview(!showAddReview);
+                 togglePopup(false);
+                 }}
+             >
+              +
+             </button>
+             </div>
+           {showReview && (
+             <div id="review-part">
            <div id="reviewList">
              {reviewList}
            </div>
@@ -260,40 +284,14 @@ export default function Map() {
                }
                  handleClose={handleCloseToggle}
              />}
-             <button 
-               id="addReview-button" 
-               onClick={() => { 
-                 setShowAddReview(!showAddReview);
-                 togglePopup(false);
-                 }}
-             >
-               Add Review
-             </button>
+             
            </div>
+           </div>
+          )}
            
          </div>
-        )}
       </div>
-      <div className="addnew">
-        {showAddNewLocation && <Window 
-          content={
-            <>
-            <h2>Add New Location</h2>
-            <AddNew position={[currentUserPos.latitude, currentUserPos.longitude]} addNewLocation={addNewLocation} />
-            </>
-          }
-            handleClose={handleCloseAddNew}
-        />}
-        <button 
-          id="addNewLocation-button"
-          onClick={() => {
-            setShowAddReview(false);
-            setShowAddNewLocation(!showAddNewLocation);
-          }}
-        >
-          Add New Location
-        </button>
-      </div>
+      
       </>
     );
 }

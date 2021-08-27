@@ -1,38 +1,25 @@
 .Map {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 75%;
-  margin-left: 10em;
-  margin-right: auto;
-  margin-top: 4em;
-}
-
-.washroom-title {
-  text-align: center;
-  margin-top: 2em;
-  color: black;
-  font-size: 3em;
-  font-family: 'Noto Sans JP', sans-serif;
+  width: 100%;
+  margin-top: 1em;
 }
 
 #review {
   width: 350px;
-  height: 400px;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin-top: 5.5em;
+  height: 700px;
   background-color: transparent;
 }
 
 #review h1 {
   color: black;
   text-align: center;
+  font-family: 'Nunito', sans-serif;
 }
 
 #reviewList {
+  height: 613px;
   overflow: scroll;
-  height: 250px;
 }
 
 #reviewList h3 {
@@ -51,16 +38,16 @@
 }
 
 #addReview-button {
-  margin: 1em auto;
-  width: 40%;
-  height: auto;
-  font-size: 18px;
-  font-family: sans-serif;
-  border-radius: 22px;
-  background-color: #0585f5;
-  color: white;
+  height: 33px;
+  font-size: 25px;
+  border-radius: 6px;
+  background-color: white;
+  color: #acb2b5;
   border-color: transparent;
-  margin-left: 5.7em;
+}
+
+#addReview-button:hover {
+  box-shadow: 6px 4px 6px #8a8989c4;
 }
 
 .card {
@@ -108,7 +95,7 @@
   background-color: rgba(255, 255, 255, 0.9);
   overflow-y: scroll;
   font-family: sans-serif;
-  font-size: 0.95em;
+  font-size: 0.97em;
   line-height: 2em;
 }
 
@@ -117,16 +104,26 @@
 }
 
 .addnew {
-  margin-left: 600px;
-  width: 180px;
+  margin-top: .5em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #addNewLocation-button {
-  margin-top: 2em;
   background-color: #0585f5;
-  font-size: 18px;
+  font-size: 20px;
   color: white;
-  border-radius: 22px;
+  border-radius: 6px;
   border-color: transparent;
-  margin-bottom: 2em;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+  margin-left: 2.2em;
 }
