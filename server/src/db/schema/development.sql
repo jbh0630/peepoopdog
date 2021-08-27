@@ -1,5 +1,5 @@
-INSERT INTO users (name, email, password) VALUES ('Byeonghyeok', 'jo123@gmail.com', 'password'),
-('James', 'james@gmail.com', 'password');
+INSERT INTO users (name, email, password, points) VALUES ('Byeonghyeok', 'jo123@gmail.com', 'password', 16),
+('James', 'james@gmail.com', 'password', 10);
 
 INSERT INTO washrooms (name, latitude, longitude) VALUES 
 ('Carnarvon Park', '49.25657880000001', -123.171486),
@@ -152,8 +152,7 @@ INSERT INTO reviews (date, rating, comment, user_id, washroom_id) VALUES
 ('2019-08-02', 'Bad', null, 1, 14),
 ('2019-08-10', 'Not Bad', null, 1, 12),
 ('2019-08-12', 'Good', 'It was clean and nice', 1, 24),
-('2019-09-12', 'Bad', 'It was not cleaned.
-', 1, 17),
+('2019-09-12', 'Not Bad', null, 1, 17),
 ('2019-11-12', 'Not Bad', null, 2, 12),
 ('2020-03-22', 'Bad', null, 2, 12),
 ('2020-05-14', 'Good', null, 1, 9),
@@ -173,6 +172,11 @@ INSERT INTO reviews (date, rating, comment, user_id, washroom_id) VALUES
 ('2021-05-07', 'Not Bad', null, 1, 12),
 ('2021-05-30', 'Bad', 'It was not cleaned.', 1, 23),
 ('2021-06-01', 'Good', null, 2, 20),
-('2021-06-07', 'Not Bad', null, 1, 13);
+('2021-06-07', 'Not Bad', null, 1, 13),
+('2020-07-01', 'Good', 'It was cleaned', 1, 17),
+('2020-07-12', 'Not Bad', null, 1, 17),
+('2020-09-20', 'Good', null, 2, 17),
+('2021-07-30', 'Good', 'It was cleaned', 1, 17);
+
 
 

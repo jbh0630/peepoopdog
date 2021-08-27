@@ -5,6 +5,7 @@
 	height: 100vh;
 	top: 0;
 	left: 0;
+	z-index:100;
 }
 .box {
 	width: 360px;
@@ -16,6 +17,7 @@
 	border-radius: 4px;
 	padding: 20px;
 	border: 1px solid #999;
+
 }
 
 .close-icon {
@@ -31,7 +33,7 @@
 	line-height: 20px;
 	text-align: center;
 	font-size: 20px;
-  color: tomato;
+  color: #0585f5;
 }
 
 .review-content {

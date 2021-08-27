@@ -12,7 +12,8 @@ const db = require("./db");
 
 const users = require('./routes/users');
 const locations = require('./routes/washrooms');
-const reviews = require('./routes/reviews')
+const reviews = require('./routes/reviews');
+const login = require('./routes/auth');
 
 function read(file) {
   return new Promise((resolve, reject) => {
@@ -38,6 +39,7 @@ module.exports = function application(ENV) {
   app.use("/api", users(db));
   app.use("/api", locations(db));
   app.use("/api", reviews(db));
+  app.use("/api", login(db));
 
   app.use('/api/data', (req, res) => res.json({
     message: "Seems to work!",

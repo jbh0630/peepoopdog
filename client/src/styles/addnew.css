@@ -8,7 +8,7 @@
 .new-washroom h4 {
   text-align: center;
   font-style: italic;
-  color: deeppink;
+  color: #0585f5;
 }
 
 .new-washroom-form .location {
@@ -19,9 +19,9 @@
 
 .new-washroom-form .location-label {
   font-size: 1em;
-  color: tomato;
+  color: black;
   margin-bottom: 1em;
-  padding-right: 3em;
+  padding-right: 2em;
 }
 
 .new-washroom-form .location-input {
@@ -37,8 +37,13 @@
 .new-washroom-form .footer .submit {
   border-radius: 22px;
   border-color: transparent;
-  background-color: tomato;
+  background-color: #0585f5;
   color: white;
   font-size: 16px;
   font-weight: bold;
+}
+
+.new-washroom-form .footer span {
+  padding-left: 2em;
+  color: #0585f5;
 }

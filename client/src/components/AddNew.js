@@ -7,6 +7,8 @@ import '../styles/addnew.css';
 export default function AddNew({ position, addNewLocation}) {
 
   const [location, setLocation] = useState('');
+  const storage = window.sessionStorage;
+  let points = storage.getItem('points');
 
   const submitNewLocation = () => {
     axios.post("/washrooms", {
@@ -16,6 +18,9 @@ export default function AddNew({ position, addNewLocation}) {
     }).then(res => {
       addNewLocation(res.data);
     });
+
+    points = Number(points) + 3;
+    storage.setItem('points', points);
   }
 
   return (
@@ -32,6 +37,7 @@ export default function AddNew({ position, addNewLocation}) {
             </div>
             <div className="footer">
               <button className="submit" type="submit" onClick={submitNewLocation} variant="primary">Submit</button>
+              <span>To get 3 points!</span>
             </div>
         </Form>
       </div>

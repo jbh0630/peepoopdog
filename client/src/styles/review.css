@@ -21,17 +21,22 @@
   width: 70%;
   height: 80px;
   resize: none;
-  border-color: tomato;
+  border-color: black;
 }
 
 .review-form .footer {
-  margin: 1em;
+  margin: .5em 1em 1em .5em;
+}
+
+.review-form .footer span {
+  padding-left: 2em;
+  color: #0585f5;
 }
 
 .review-form .submitreview {
   border-radius: 22px;
   border-color: transparent;
-  background-color: tomato;
+  background-color: #0585f5;
   color: white;
   font-size: 14px;
 }
