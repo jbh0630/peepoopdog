@@ -38,12 +38,13 @@ export default function Map() {
   const [reviews, setReviews] = useState([]);
   const [currentWashroomId, setCurrentWashroomId] = useState(null);
   const [washrooms, setWashrooms] = useState([]);
+  const [showReview, setShowReview] = useState(false);
   const [viewport, setViewport] = useState({
-    width: 600,
-    height: 600,
+    width: 1700,
+    height: 650,
     latitude: 49.229575,
     longitude: -122.974397,
-    zoom: 9.5
+    zoom: 11
   });
   const geolocateControlStyle = {
     right: 10,
@@ -88,7 +89,7 @@ export default function Map() {
       }
     }
     setCurrentReview(result);
-    document.getElementById('addReview-button').style.display = "block";
+    // document.getElementById('addReview-button').style.display = "block";
   }
   
    const reviewList = currentReview.length > 0 ? currentReview.map((review) => {
@@ -105,6 +106,17 @@ export default function Map() {
 
     const handleGetRouteClick = (lat, lng) => {
       getDirections(lat, lng);
+    }
+
+    const handleShowReview = () => {
+      setViewport({
+        width: 1000,
+        height: 650,
+        latitude: currentUserPos.latitude,
+        longitude: currentUserPos.longitude,
+        zoom: 12
+      });
+      setShowReview(true);
     }
    
     const getDirections = (lat, lng) => {
@@ -165,7 +177,7 @@ export default function Map() {
     const handleCloseAddNew = () => {
       setShowAddNewLocation(!showAddNewLocation);
     }
-      
+      console.log(currentWashroomId);
     return(
       <>
       <h1 className="washroom-title">Find Washrooms</h1>
@@ -199,7 +211,7 @@ export default function Map() {
                   style={{fontSize: viewport.zoom * 2, color:"blue"}}
                   onClick={() => {
                     handleWashroomClick(washroom.id); getFilterReviews(washroom.id);
-                    document.getElementById("review").style.display = "block";
+                    handleShowReview();
                   }}
                 />
               </Marker>
@@ -232,40 +244,41 @@ export default function Map() {
             {instructions}
           </div>
         </ReactMapGL>
-        <div id="review">
-          <h1>Reviews</h1>
-          <div id="reviewList">
-            {reviewList}
-          </div>
-          <div>
-            {showAddReview && <Window 
-              content={
-                <>
-                <h2 style={{color: 'tomato'}}>Review</h2>
-                <Review washroom_id={currentWashroomId} addReview={addReview}/>
-                </>
-              }
-                handleClose={handleCloseToggle}
-            />}
-            <button 
-              id="addReview-button" 
-              onClick={() => { 
-                setShowAddReview(!showAddReview);
-                togglePopup(false);
-                }}
-            >
-              Add Review
-            </button>
-          </div>
-          
-        </div>
-        
+        {showReview && (
+           <div id="review">
+           <h1>Reviews</h1>
+           <div id="reviewList">
+             {reviewList}
+           </div>
+           <div>
+             {showAddReview && <Window 
+               content={
+                 <>
+                 <h2>Review</h2>
+                 <Review washroom_id={currentWashroomId} addReview={addReview}/>
+                 </>
+               }
+                 handleClose={handleCloseToggle}
+             />}
+             <button 
+               id="addReview-button" 
+               onClick={() => { 
+                 setShowAddReview(!showAddReview);
+                 togglePopup(false);
+                 }}
+             >
+               Add Review
+             </button>
+           </div>
+           
+         </div>
+        )}
       </div>
       <div className="addnew">
         {showAddNewLocation && <Window 
           content={
             <>
-            <h2 style={{color: 'tomato'}}>Add New Location</h2>
+            <h2>Add New Location</h2>
             <AddNew position={[currentUserPos.latitude, currentUserPos.longitude]} addNewLocation={addNewLocation} />
             </>
           }

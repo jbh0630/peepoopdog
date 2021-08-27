@@ -1,7 +1,7 @@
 .review-box {
   display: flex;
   flex-direction: column;
-  border: solid 2px tomato;
+  border: solid 2px black;
   margin: 8px auto;
   width: 85%;
   padding: 5px 15px 5px 15px;

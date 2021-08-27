@@ -2,14 +2,134 @@ header{
   display: flex;
   width: 100%;
   flex-direction: row;
-  background-color:#058af7;
+  background-color: #ffffff;
+  align-items: center;
+  border-bottom: 1px solid #d9d9d9;
+  z-index: 3;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0;
+}
+
+.username{
+  color: black;
+  font-weight: bold;
+  margin-right: 2em;
+}
+
+.logout {
+  float: right;
+}
+
+.point-img {
+  color: gold;
+  padding-right: 1.5em;
+  
+}
+
+.points-form {
+  height: 200px;
+}
+
+.points-form h1 {
+  color: black;
+  margin-bottom: 2em;
+}
+
+.points {
+  margin: 2em 2em 2em 3.5em;
+  display: flex;
+  flex-direction: row;
+  color: #0585f5;
+  width: 220px;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.coffee-logo {
+  color: black;
+  padding-right: 1em;
+}
+
+.redeem-form h1 {
+  color: black;
+}
+
+.redeemed .title {
+  color: #0585f5;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 5.5em;
+}
+
+.coffee-form {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coffee {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.app-name {
-  color: rgb(243, 168, 154);
+.coffee-img {
+  margin-top: 1em;
+  height: 100px;
+  width: 110px;
+}
+
+.qrcode-img {
+  margin-top: 1.2em;
+  height: 100px;
+  width: 100px;
+}
+
+.redeemed-coffee {
+  color: black;
   font-weight: bold;
-  font-size: 2em;
+}
+
+.noRedeem {
+  display: flex;
+  flex-direction: column;
+}
+
+.noRedeem-text {
+  color: #0585f5;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.weekly {
+  color: black;
+  font-weight: bold;
+}
+
+.btn-redeem {
+  font-size: 25px;
+  margin-left: 4em;
+  background-color: #0585f5;
+  border-radius: 7px;
+  border-color: transparent;
+  color : white;
+}
+
+#conditions {
+  margin: 2em;
+  color: #0585f5;
+  font-size: 16px;
+}
+
+.app-name {
+  color: black;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 .navbars{
@@ -22,12 +142,19 @@ header{
   padding: 0 3em 0 3em;
 }
 
+.logout-button {
+  background-color: #0585f5;
+  color: white;
+  border-radius: 10px;
+  border-color: transparent;
+}
+
 .navbar-nav{
   display: flex;
   flex-direction: row;
   color: white;
   width:100%;
-  padding-left: 3em;
+  justify-content: flex-end;
 }
 
 .navbar-link {

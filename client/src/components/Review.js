@@ -9,6 +9,10 @@ export default function Review ({ addReview, washroom_id}) {
 
   const [comment, setComment] = useState(null);
   const [rating, setRating] = useState('');
+  
+  const storage = window.sessionStorage;
+  let points = storage.getItem('points');
+
 
   const submitReview = () => {
     axios.post("/reviews", {
@@ -20,6 +24,9 @@ export default function Review ({ addReview, washroom_id}) {
     }).then(res => {
       addReview(res.data);
     });
+
+    points = Number(points) + 1;
+    storage.setItem('points', points);
   }
 
   const handleOptionChange = (value) => {
@@ -67,6 +74,7 @@ export default function Review ({ addReview, washroom_id}) {
           <textarea placeholder="Share your experience with us" onChange={(e) => setComment(e.target.value)}></textarea>
           <div className="footer">
             <button className="submitreview" type="submit" onClick={submitReview} variant="primary"><b>Submit Review</b></button>
+            <span>To get 1 point!</span>
           </div>
       </Form>
     </div>
