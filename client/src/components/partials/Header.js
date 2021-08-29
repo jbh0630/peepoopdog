@@ -32,7 +32,7 @@ export default function Header () {
 
   const redeemHandle = () => {
     setRedeem(!redeem);
-    myStorage.setItem('points', 0);
+    myStorage.setItem('points', points - 20);
   }
 
   return (
@@ -43,8 +43,8 @@ export default function Header () {
           <div class="navbar-navee">
            
           <form class="logout" action="/logout" method="POST">
-          <span><LocalCafeIcon className="coffee-logo" onClick={handleCoffeeClick}/></span>
-            <span><MonetizationOnIcon className="point-img" onClick={handlePointClick}/></span>
+          <span><LocalCafeIcon className="coffee-logo" fontSize="large" onClick={handleCoffeeClick}/></span>
+            <span><MonetizationOnIcon className="point-img" fontSize="large" onClick={handlePointClick}/></span>
             <span className="username">{name}</span>
             <button className="logout-button"type="submit">Logout</button>
           </form>
