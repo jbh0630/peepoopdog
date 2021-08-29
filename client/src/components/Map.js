@@ -169,7 +169,7 @@ export default function Map() {
     const handleCloseAddNew = () => {
       setShowAddNewLocation(!showAddNewLocation);
     }
-      console.log(currentWashroomId);
+
     return(
       <>
       <div className="Map">

@@ -1,9 +1,15 @@
 .review-box {
   display: flex;
   flex-direction: column;
-  border: solid 2px black;
   margin: 8px auto;
-  width: 85%;
-  padding: 5px 15px 5px 15px;
+  margin-bottom: 1.4em;
+  width: 80%;
+  padding: 10px 20px 10px 20px;
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 6px 4px 6px #d9d9d9;
+}
+
+.review-box:hover {
+  box-shadow: 6px 4px 6px #8a8989c4;
 }

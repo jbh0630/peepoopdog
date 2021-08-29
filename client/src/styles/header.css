@@ -8,6 +8,8 @@ header{
   z-index: 3;
   font-family: 'Open Sans', sans-serif;
   margin-top: 0;
+  box-shadow: 6px 4px 6px #d9d9d9;
+  z-index: 99;
 }
 
 .username{
@@ -17,13 +19,13 @@ header{
 }
 
 .logout {
+  display: flex;
+  flex-direction: row;
   float: right;
 }
 
 .point-img {
   color: gold;
-  padding-right: 1.5em;
-  
 }
 
 .points-form {
@@ -48,7 +50,7 @@ header{
 
 .coffee-logo {
   color: black;
-  padding-right: 1em;
+  margin-right: 1em;
 }
 
 .redeem-form h1 {
@@ -113,7 +115,7 @@ header{
 
 .btn-redeem {
   font-size: 25px;
-  margin-left: 4em;
+  margin-left: 5em;
   background-color: #0585f5;
   border-radius: 7px;
   border-color: transparent;
@@ -145,8 +147,9 @@ header{
 .logout-button {
   background-color: #0585f5;
   color: white;
-  border-radius: 10px;
+  border-radius: 7px;
   border-color: transparent;
+  font-size: 20px;
 }
 
 .navbar-nav{

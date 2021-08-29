@@ -1,8 +1,10 @@
 .Map {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 99%;
   margin-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 #review {
@@ -117,6 +119,7 @@
   color: white;
   border-radius: 6px;
   border-color: transparent;
+  box-shadow: 2px 2px 2px 2px #8a8989c4;
 }
 
 .review-header {
