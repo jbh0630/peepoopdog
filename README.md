@@ -1,6 +1,6 @@
 # peepoopdog
 
-Peepoopdog is a finding public washroom app that allows user to find washrooms near user. The app features:
+Peepoopdog is a finding public washroom app that allows to find washrooms near user. The app features:
 
 Find washroom:
 - Users can find washrooms
