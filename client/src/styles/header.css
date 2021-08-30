@@ -16,6 +16,8 @@ header{
   color: black;
   font-weight: bold;
   margin-right: 2em;
+  display: flex;
+  align-items: center;
 }
 
 .logout {
@@ -26,6 +28,7 @@ header{
 
 .point-img {
   color: gold;
+  margin-right: 1em;
 }
 
 .points-form {

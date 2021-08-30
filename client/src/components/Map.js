@@ -14,7 +14,7 @@ import '../styles/map.css';
 
 export default function Map() {
 
-  const layer = {
+  let layer = {
     'id': 'route',
             'type': 'line',
             'source': 'route',
@@ -153,6 +153,7 @@ export default function Map() {
     }
 
     const addReview = (newReview) => {
+      document.getElementById("instructions").style.display = "none";
       handleCloseToggle();
       setCurrentReview(prev => ([ ...prev, newReview]));
     }
