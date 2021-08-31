@@ -6,7 +6,6 @@ header{
   align-items: center;
   border-bottom: 1px solid #d9d9d9;
   z-index: 3;
-  font-family: 'Open Sans', sans-serif;
   margin-top: 0;
   box-shadow: 6px 4px 6px #d9d9d9;
   z-index: 99;
@@ -14,8 +13,8 @@ header{
 
 .username{
   color: black;
-  font-weight: bold;
-  margin-right: 2em;
+  font-weight: bold !important;
+  margin-right: 2.5em;
   display: flex;
   align-items: center;
 }
@@ -27,7 +26,7 @@ header{
 }
 
 .point-img {
-  color: gold;
+  color: black;
   margin-right: 1em;
 }
 
