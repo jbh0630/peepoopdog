@@ -41,7 +41,7 @@ export default function Map() {
   const [showReview, setShowReview] = useState(false);
   const [viewport, setViewport] = useState({
     width: 1800,
-    height: 700,
+    height: 800,
     latitude: 49.229575,
     longitude: -122.974397,
     zoom: 11,
