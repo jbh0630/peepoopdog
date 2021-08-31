@@ -45,8 +45,6 @@ export default function Header () {
           <form class="logout" action="/logout" method="POST">
           <span><LocalCafeIcon className="coffee-logo" fontSize="large" onClick={handleCoffeeClick}/></span>
             <span><MonetizationOnIcon className="point-img" fontSize="large" onClick={handlePointClick}/></span>
-            <span className="username">{name}</span>
-            <button className="logout-button"type="submit">Logout</button>
           </form>
           {showPointPopup && <Window 
           content={
