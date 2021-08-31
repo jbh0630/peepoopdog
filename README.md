@@ -21,4 +21,4 @@ Get coupon:
 
 ## Final Product
 
-!["FinalProduct"](https://github.com/jbh0630/Peepoopdog/blob/main/docs/ppd.gif)
+!["FinalProduct"](https://github.com/jbh0630/Peepoopdog/blob/main/docs/pdd.gif)
