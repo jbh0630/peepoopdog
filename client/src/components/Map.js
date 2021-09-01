@@ -155,6 +155,7 @@ export default function Map() {
     const addReview = (newReview) => {
       document.getElementById("instructions").style.display = "none";
       handleCloseToggle();
+      setReviews(prev => ([ ...prev, newReview]));
       setCurrentReview(prev => ([ ...prev, newReview]));
     }
 
