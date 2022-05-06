@@ -22,3 +22,14 @@ Get coupon:
 ## Final Product
 
 !["FinalProduct"](https://github.com/jbh0630/Peepoopdog/blob/main/docs/pdd.gif)
+
+
+
+# Front-End-Assessment-Exercise
+
+## Demo
+
+## Task1 
+!["Task1"](https://github.com/jbh0630/Front-End-Assessment-Exercise/blob/master/TaskDemo/demo1.gif)
+
+## Task1 - 
