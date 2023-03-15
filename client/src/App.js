@@ -10,7 +10,6 @@ import FindWashroom from './pages/FindWashroom';
 function App() {
     return(
       <Router>
-//         <Route exact path="/mainpage" component={MainPage} />
         <Route exact path="/findwashroom" component={FindWashroom} />
       </Router>
     );
